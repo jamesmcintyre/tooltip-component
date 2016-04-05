@@ -2,11 +2,11 @@ module.exports = function (grunt) {
 
     var compass = require('compass-importer');
 
-    // Project configuration.
     grunt.initConfig({
+        pkg: grunt.file.readJSON('package.json'),
         sass: {
             options: {
-                outputStyle: 'compressed',
+                outputStyle: 'expanded',
                 importer: compass
             },
             dist: {
@@ -14,12 +14,19 @@ module.exports = function (grunt) {
                     'public/css/style.css': 'src/scss/main.scss'
                 }
             }
+        },
+        copy: {
+          files: {
+            cwd: './src',
+            src: ['**/*','!**/scss/**'],
+            dest: './public/',
+            expand: true
+          }
         }
     });
 
-    ['grunt-sass'].forEach(grunt.loadNpmTasks);
+    ['grunt-sass','grunt-contrib-copy'].forEach(grunt.loadNpmTasks);
 
-   // Task to generate only css
-   grunt.registerTask('sass', ['sass']);
+   grunt.registerTask('default', ['sass', 'copy']);
 
 };

@@ -4,16 +4,49 @@
   <meta charset="UTF-8">
   <title>Tooltip</title>
 
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/bootstrap-material-design.css">
-  
-  <link rel="stylesheet" href="bower_components/tether-tooltip/dist/css/tooltip-theme-arrows.css">
-  <script src="bower_components/tether/dist/js/tether.min.js"></script>
-  <script src="bower_components/tether-drop/dist/js/drop.min.js"></script>
-  <script src="bower_components/tether-tooltip/dist/js/tooltip.min.js"></script>
+  <!-- <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="lib/bootstrap-material-design/dist/bootstrap-material-design.css"> -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="lib/tether-tooltip/dist/css/tooltip-theme-arrows.css">
+  <script src="lib/tether/dist/js/tether.min.js"></script>
+  <script src="lib/tether-drop/dist/js/drop.min.js"></script>
+  <script src="lib/tether-tooltip/dist/js/tooltip.min.js"></script>
+  <script src="lib/angular/angular.min.js"></script>
+  <script src="lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="lib/jquery/dist/jquery.min.js"></script>
+  <script src="main.js"></script>
 
 </head>
 <body>
+
+  <div class="container" ng-app="app" ng-controller="mainController">
+
+    <div class="col-sm-6 col-sm-offset-3">
+
+      <table class="sample table table-hover">
+        <thead>
+          <tr>
+            <th>Logo</th>
+            <th>Name</th>
+            <th>Bio</th>
+            <th>Tags</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="record in records track by $index">
+            <td><img ng-src="{{record.logo}}" alt="" class="img-responsive tiny"></td>
+            <td>{{record.name}}</td>
+            <td>{{record.bio}}</td>
+            <td>{{record.tags}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+
+  </div>
+
 
 </body>
 </html>
