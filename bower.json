@@ -1,0 +1,26 @@
+{
+  "name": "tooltip",
+  "authors": [
+    "James McIntyre <james.checks.his.email@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "tether-tooltip": "^1.2.0",
+    "bootstrap": "^3.3.6",
+    "bootstrap-material-design": "^4.0.1"
+  },
+  "resolutions": {
+    "bootstrap": "^3.3.6"
+  }
+}
