@@ -14,7 +14,6 @@
   <script src="lib/angular/angular.min.js"></script>
   <script src="lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
   <script src="lib/jquery/dist/jquery.min.js"></script>
-  <script src="main.js"></script>
 
 </head>
 <body>
@@ -33,7 +32,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="record in records track by $index">
+          <tr ng-repeat="record in records track by $index" uib-tooltip-template="'/partials/tooltip.html'" tooltip-placement="bottom-left" tooltip-class="panth-tooltip">
             <td><img ng-src="{{record.logo}}" alt="" class="img-responsive tiny"></td>
             <td>{{record.name}}</td>
             <td>{{record.bio}}</td>
@@ -48,5 +47,6 @@
   </div>
 
 
+  <script src="main.js"></script>
 </body>
 </html>

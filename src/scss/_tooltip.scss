@@ -1,3 +1,26 @@
 .sample {
   margin-top: 30vh;
 }
+
+.panth-tooltip{
+  .tooltip-inner {
+    max-width: 500px;
+    height: 400px;
+    padding: 3px 8px;
+    color: black;
+    background: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
+.company-details {
+  width: 400px;
+  height: 300px;
+}
+
+.panel-panth {
+  .panel-heading {
+    background-color: $panth-purple !important;
+  }
+}
