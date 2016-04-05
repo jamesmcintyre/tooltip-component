@@ -29,7 +29,7 @@ module.exports = function (grunt) {
             tasks: ['sass']
           },
           files:{
-            files: ['src/*.js', 'src/*.html'],
+            files: ['src/*.js', 'src/**/*.html'],
             tasks: ['copy']
           }
         }

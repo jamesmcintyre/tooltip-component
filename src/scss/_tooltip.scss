@@ -15,12 +15,51 @@
 }
 
 .company-details {
-  width: 400px;
-  height: 300px;
+
 }
 
 .panel-panth {
+  width: 480px;
+
   .panel-heading {
     background-color: $panth-purple !important;
+    text-align: left;
+  }
+  h5.panel-title {
+    font-size: 14px;
+  }
+  .panel-body {
+    text-align: left;
+    position: relative;
+  }
+  .panel-logo {
+    width: 60px;
+    border-radius: 5px;
+  }
+  .panel-bio {
+    width: 60%;
+    font-size: 12px;
+  }
+  .btn {
+    margin-bottom: 0px;
+  }
+  .btn-panth {
+    background-color: $panth-purple;
+    color: white;
+  }
+  .panel-tags {
+    margin-bottom: 5px;
+    position: absolute;
+    bottom: 0px;
+    font-size: 12px;
+    color: grey;
+    ul{
+      display: inline-block;
+      padding-left: 5px;
+    }
+    li{
+      display: inline-block;
+      margin-right: 4px;
+    }
   }
 }

@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <title>Tooltip</title>
 
-  <!-- <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="lib/bootstrap-material-design/dist/bootstrap-material-design.css"> -->
+  <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="lib/bootstrap-material-design/dist/bootstrap-material-design.css"> -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="lib/tether-tooltip/dist/css/tooltip-theme-arrows.css">
   <script src="lib/tether/dist/js/tether.min.js"></script>
@@ -18,9 +18,29 @@
 </head>
 <body>
 
-  <div class="container" ng-app="app" ng-controller="mainController">
+  <div class="container" ng-app="toolTipApp" ng-controller="mainController">
 
     <div class="col-sm-8 col-sm-offset-2">
+
+      <!-- THIS DIV IS HERE ONLY FOR FASTER STYLING TEMPORARILY -->
+      <!-- <div class="panel panel-panth">
+        <div class="panel-heading">
+          <h5 class="panel-title">{{sampleData.name}}</h5>
+        </div>
+        <div class="panel-body">
+          <img ng-src="{{sampleData.logo}}" alt="" class="pull-right panel-logo">
+          <div class="panel-bio">{{sampleData.bio}}</div>
+          <div class="panel-tags"><span class="glyphicon glyphicon-tag"></span>
+            <ul>
+              <li ng-repeat="tag in sampleData.tags track by $index">{{tag}}{{$last ? '' : ','}}</li>
+            </ul>
+          </div>
+          <div class="panel-btn-group pull-right">
+            <div class="btn btn-raised btn-panth">Watch</div>
+            <div class="btn btn-raised btn-default">Pass</div>
+          </div>
+        </div>
+      </div> -->
 
       <table class="sample table table-hover">
         <thead>
@@ -32,11 +52,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="record in records track by $index" uib-tooltip-template="'/partials/tooltip.html'" tooltip-placement="bottom-left" tooltip-class="panth-tooltip">
+          <tr ng-repeat="record in records track by $index" uib-tooltip-template="'/partials/tooltip.html'" ng-mouseover="activeRow = records[$index]" tooltip-placement="bottom-left" tooltip-class="panth-tooltip">
             <td><img ng-src="{{record.logo}}" alt="" class="img-responsive tiny"></td>
             <td>{{record.name}}</td>
             <td>{{record.bio}}</td>
-            <td>{{record.tags}}</td>
+            <td><span ng-repeat="tag in record.tags">{{tag}}{{$last ? '' : ', '}}</span></td>
           </tr>
         </tbody>
       </table>
