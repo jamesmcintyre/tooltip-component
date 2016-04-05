@@ -22,11 +22,22 @@ module.exports = function (grunt) {
             dest: './public/',
             expand: true
           }
+        },
+        watch: {
+          sass:{
+            files: ['src/**/*.scss'],
+            tasks: ['sass']
+          },
+          files:{
+            files: ['src/*.js', 'src/*.html'],
+            tasks: ['copy']
+          }
         }
     });
 
-    ['grunt-sass','grunt-contrib-copy'].forEach(grunt.loadNpmTasks);
+    ['grunt-sass','grunt-contrib-copy', 'grunt-contrib-watch'].forEach(grunt.loadNpmTasks);
 
-   grunt.registerTask('default', ['sass', 'copy']);
+  //  grunt.registerTask('watch', ['watch']);
+   grunt.registerTask('default', ['sass', 'copy', 'watch']);
 
 };
