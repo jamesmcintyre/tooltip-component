@@ -21,6 +21,7 @@ app.controller('mainController', function($scope, $http, $rootScope) {
         });
 
   $scope.hoverIn = function(activeRecord){
+    console.log(this);
     this.showHide = true;
     this.activeRow = activeRecord;
   };
