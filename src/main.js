@@ -2,15 +2,13 @@
 
 var app = angular.module('toolTipApp', ['ui.bootstrap']);
 
-app.config(['$uibTooltipProvider', function($uibTooltipProvider){
-  $uibTooltipProvider.setTriggers({
-    'mouseenter': 'mouseleave',
-    'click': 'click',
-    'focus': 'blur'
-  });
-}]);
+// app.config(['$uibTooltipProvider', function($uibTooltipProvider){
+//   $uibTooltipProvider.setTriggers({
+//     'showToolTip': 'hideToolTip'
+//   });
+// }]);
 
-app.controller('mainController', function($scope, $http) {
+app.controller('mainController', function($scope, $http, $rootScope) {
 
   console.log('loaded!');
 
@@ -22,9 +20,19 @@ app.controller('mainController', function($scope, $http) {
           }
         });
 
-  $scope.activeRow = {};
+  $scope.hoverIn = function(activeRecord){
+    this.showHide = true;
+    this.activeRow = activeRecord;
+  };
 
-  $scope.test = 'hello';
+  $scope.hideToolTip = function(index){
+    this.showHide = false;
+  };
+
+
+  // $scope.activeRow = {};
+
+  // $scope.test = 'hello';
 
   $scope.sampleData = {
     name: 'Out of Galaxy',

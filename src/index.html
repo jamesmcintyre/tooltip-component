@@ -20,7 +20,7 @@
 
   <div class="container" ng-app="toolTipApp" ng-controller="mainController">
 
-    <div class="col-sm-8 col-sm-offset-2">
+    <div class="col-sm-10 col-sm-offset-1">
 
       <!-- THIS DIV IS HERE ONLY FOR FASTER STYLING TEMPORARILY -->
       <!-- <div class="panel panel-panth">
@@ -45,16 +45,16 @@
       <table class="sample table table-hover">
         <thead>
           <tr>
-            <th>Logo</th>
-            <th>Name</th>
-            <th>Bio</th>
-            <th>Tags</th>
+            <th class="col-xs-1">Logo</th>
+            <th class="col-xs-2">Name</th>
+            <th class="col-xs-5">Bio</th>
+            <th class="col-xs-2">Tags</th>
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="record in records track by $index" uib-tooltip-template="'/partials/tooltip.html'" ng-mouseover="activeRow = records[$index]" tooltip-placement="bottom-left" tooltip-class="panth-tooltip">
+          <tr ng-repeat="record in records track by $index" uib-tooltip-template="'/partials/tooltip.html'" tooltip-is-open="showHide" tooltip-placement="bottom-left" tooltip-trigger="none" tooltip-class="panth-tooltip">
             <td><img ng-src="{{record.logo}}" alt="" class="img-responsive tiny"></td>
-            <td>{{record.name}}</td>
+            <td><span  ng-mouseover="hoverIn(records[$index])" class="company-name">{{record.name}}   </span><span ng-show="showHide" ng-mouseover="hideToolTip()" class="hide-tip">Hide</span></td>
             <td>{{record.bio}}</td>
             <td><span ng-repeat="tag in record.tags">{{tag}}{{$last ? '' : ', '}}</span></td>
           </tr>
