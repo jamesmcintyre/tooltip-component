@@ -2,11 +2,6 @@
 
 var app = angular.module('toolTipApp', ['ui.bootstrap']);
 
-// app.config(['$uibTooltipProvider', function($uibTooltipProvider){
-//   $uibTooltipProvider.setTriggers({
-//     'showToolTip': 'hideToolTip'
-//   });
-// }]);
 
 app.controller('mainController', function($scope, $http, $rootScope) {
 
@@ -21,19 +16,22 @@ app.controller('mainController', function($scope, $http, $rootScope) {
         });
 
   $scope.hoverIn = function(activeRecord){
-    console.log(this);
-    this.showHide = true;
+    $scope.focusedElementIndex = this.$index;
     this.activeRow = activeRecord;
   };
 
   $scope.hideToolTip = function(index){
-    this.showHide = false;
+    $scope.focusedElementIndex = null;
   };
 
+  $scope.toggleTooltip = function(element){
+    if(this.$index === $scope.focusedElementIndex){
+      return true;
+    }else{
+      return false;
+    }
+  };
 
-  // $scope.activeRow = {};
-
-  // $scope.test = 'hello';
 
   $scope.sampleData = {
     name: 'Out of Galaxy',

@@ -5,15 +5,9 @@
   <title>Tooltip</title>
 
   <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
-  <!-- <link rel="stylesheet" href="lib/bootstrap-material-design/dist/bootstrap-material-design.css"> -->
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="lib/tether-tooltip/dist/css/tooltip-theme-arrows.css">
-  <script src="lib/tether/dist/js/tether.min.js"></script>
-  <script src="lib/tether-drop/dist/js/drop.min.js"></script>
-  <script src="lib/tether-tooltip/dist/js/tooltip.min.js"></script>
   <script src="lib/angular/angular.min.js"></script>
   <script src="lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-  <script src="lib/jquery/dist/jquery.min.js"></script>
 
 </head>
 <body>
@@ -21,26 +15,6 @@
   <div class="container" ng-app="toolTipApp" ng-controller="mainController">
 
     <div class="col-sm-10 col-sm-offset-1">
-
-      <!-- THIS DIV IS HERE ONLY FOR FASTER STYLING TEMPORARILY -->
-      <!-- <div class="panel panel-panth">
-        <div class="panel-heading">
-          <h5 class="panel-title">{{sampleData.name}}</h5>
-        </div>
-        <div class="panel-body">
-          <img ng-src="{{sampleData.logo}}" alt="" class="pull-right panel-logo">
-          <div class="panel-bio">{{sampleData.bio}}</div>
-          <div class="panel-tags"><span class="glyphicon glyphicon-tag"></span>
-            <ul>
-              <li ng-repeat="tag in sampleData.tags track by $index">{{tag}}{{$last ? '' : ','}}</li>
-            </ul>
-          </div>
-          <div class="panel-btn-group pull-right">
-            <div class="btn btn-raised btn-panth">Watch</div>
-            <div class="btn btn-raised btn-default">Pass</div>
-          </div>
-        </div>
-      </div> -->
 
       <table class="sample table table-hover">
         <thead>
@@ -54,7 +28,7 @@
         <tbody>
           <tr ng-repeat="record in records track by $index" >
             <td><img ng-src="{{record.logo}}" alt="" class="img-responsive tiny"></td>
-            <td><span  ng-mouseover="hoverIn(records[$index])" class="company-name" uib-tooltip-template="'/partials/tooltip.html'" tooltip-is-open="showHide" tooltip-placement="bottom-left" tooltip-trigger="none" tooltip-class="panth-tooltip">{{record.name}}   </span><span ng-show="showHide" ng-mouseover="hideToolTip()" class="hide-tip">Hide</span></td>
+            <td><span  ng-mouseover="hoverIn(records[$index])" class="company-name" uib-tooltip-template="'/partials/tooltip.html'" tooltip-is-open="toggleTooltip()" tooltip-placement="bottom-left" tooltip-trigger="none" tooltip-class="panth-tooltip">{{record.name}}   </span><span ng-show="toggleTooltip()" ng-mouseover="hideToolTip()" class="hide-tip">Hide</span></td>
             <td>{{record.bio}}</td>
             <td><span ng-repeat="tag in record.tags">{{tag}}{{$last ? '' : ', '}}</span></td>
           </tr>

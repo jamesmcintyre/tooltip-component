@@ -21,6 +21,7 @@
 
 .panel-panth {
   width: 480px;
+  margin-bottom: 0px;
 
   .panel-heading {
     background-color: $panth-purple !important;
@@ -33,6 +34,10 @@
     text-align: left;
     position: relative;
   }
+  .panel-top {
+    display: block;
+    min-height: 60px;
+  }
   .panel-logo {
     width: 60px;
     border-radius: 5px;
@@ -40,6 +45,10 @@
   .panel-bio {
     width: 70%;
     font-size: 12px;
+  }
+  .panel-bottom {
+    display: block;
+    height: auto;
   }
   .btn {
     margin-bottom: 0px;

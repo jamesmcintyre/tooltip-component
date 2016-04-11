@@ -3,16 +3,20 @@
     <h5 class="panel-title">{{activeRow.name}}</h5>
   </div>
   <div class="panel-body">
-    <img ng-src="{{activeRow.logo}}" alt="" class="pull-right panel-logo">
-    <div class="panel-bio">{{activeRow.bio}}</div>
-    <div class="panel-tags"><span class="glyphicon glyphicon-tag"></span>
-      <ul>
-        <li ng-repeat="tag in activeRow.tags track by $index">{{tag}}{{$last ? '' : ','}}</li>
-      </ul>
+    <div class="panel-top">
+      <img ng-src="{{activeRow.logo}}" alt="" class="pull-right panel-logo">
+      <div class="panel-bio">{{activeRow.bio}}</div>
     </div>
-    <div class="panel-btn-group pull-right">
-      <div class="btn btn-raised btn-panth">Watch</div>
-      <div class="btn btn-raised btn-default">Pass</div>
+    <div class="panel-bottom">
+      <div class="panel-tags"><span class="glyphicon glyphicon-tag"></span>
+        <ul>
+          <li ng-repeat="tag in activeRow.tags track by $index">{{tag}}{{$last ? '' : ','}}</li>
+        </ul>
+      </div>
+      <div class="panel-btn-group pull-right">
+        <div class="btn btn-raised btn-panth">Watch</div>
+        <div class="btn btn-raised btn-default">Pass</div>
+      </div>
     </div>
   </div>
 
