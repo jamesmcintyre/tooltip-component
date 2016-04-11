@@ -12,6 +12,7 @@
     "compass": "^0.1.1",
     "compass-importer": "^0.2.3",
     "compass-mixins": "^0.12.7",
+    "grunt": "^1.0.1",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-sass": "^1.1.0"
