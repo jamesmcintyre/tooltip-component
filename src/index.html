@@ -5,9 +5,15 @@
   <title>Tooltip</title>
 
   <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="lib/tether-tooltip/dist/css/tooltip-theme-arrows.css" />
   <link rel="stylesheet" href="css/style.css">
+  <script src="lib/tether/dist/js/tether.min.js"></script>
+  <script src="lib/tether-drop/dist/js/drop.min.js"></script>
   <script src="lib/angular/angular.min.js"></script>
+  <script src="angular-drop.js"></script>
   <script src="lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <!-- <script src="lib/tether-tooltip/dist/js/tooltip.min.js"></script> -->
+  <script src="main.js"></script>
 
 </head>
 <body>
@@ -16,10 +22,12 @@
 
     <div class="col-sm-10 col-sm-offset-1">
 
+      <a class="dark" my-drop callback="do">Click Me</a>
+
       <table class="sample table table-hover">
         <thead>
           <tr>
-            <th class="col-xs-1">Logo</th>
+            <th id="bigtest" class="col-xs-1">Logo</th>
             <th class="col-xs-2">Name</th>
             <th class="col-xs-5">Bio</th>
             <th class="col-xs-2">Tags</th>
@@ -28,7 +36,7 @@
         <tbody>
           <tr ng-repeat="record in records track by $index" >
             <td><img ng-src="{{record.logo}}" alt="" class="img-responsive tiny"></td>
-            <td><span  ng-mouseover="hoverIn(records[$index])" class="company-name" uib-tooltip-template="'/partials/tooltip.html'" tooltip-is-open="toggleTooltip()" tooltip-placement="bottom-left" tooltip-trigger="none" tooltip-class="panth-tooltip">{{record.name}}   </span><span ng-show="toggleTooltip()" ng-mouseover="hideToolTip()" class="hide-tip">Hide</span></td>
+            <td><span class="company-name" ng-mouseover="hoverIn($index)">{{record.name}}   </span><span ng-show="toggleTooltip()" ng-mouseover="hideToolTip()" class="hide-tip">Hide</span></td>
             <td>{{record.bio}}</td>
             <td><span ng-repeat="tag in record.tags">{{tag}}{{$last ? '' : ', '}}</span></td>
           </tr>
@@ -41,6 +49,5 @@
   </div>
 
 
-  <script src="main.js"></script>
 </body>
 </html>

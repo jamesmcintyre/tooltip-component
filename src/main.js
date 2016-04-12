@@ -1,9 +1,13 @@
 
 
-var app = angular.module('toolTipApp', ['ui.bootstrap']);
+var app = angular.module('toolTipApp', ['ui.bootstrap', 'angularEffDrop']);
 
 
-app.controller('mainController', function($scope, $http, $rootScope) {
+app.controller('mainController', function($scope, $http, $rootScope, $window) {
+
+  var Tooltip = $window.Tooltip;
+  var Tether = $window.Tether;
+  var Drop = $window.Drop;
 
   console.log('loaded!');
 
@@ -16,8 +20,17 @@ app.controller('mainController', function($scope, $http, $rootScope) {
         });
 
   $scope.hoverIn = function(activeRecord){
-    $scope.focusedElementIndex = this.$index;
-    this.activeRow = activeRecord;
+    // $scope.focusedElementIndex = this.$index;
+    // this.activeRow = activeRecord;
+    console.log('lkdsfjsld');
+    var target1 = angular.element(document).find('#bigtest');
+    console.log(activeRecord);
+    new Tooltip({
+      target: activeRecord,
+      position: 'top left',
+      content: "My awesome <b>content</b>.",
+      classes: 'my-tether-theme'
+    });
   };
 
   $scope.hideToolTip = function(index){
@@ -42,3 +55,29 @@ app.controller('mainController', function($scope, $http, $rootScope) {
 
 
 });
+
+
+app.directive('myDrop', ['dropWrapper', function($drop) {
+    return {
+      restrict: 'EA',
+      scope: { elem: '=myDrop', fn: '=callback' },
+      link: function(scope, elem) {
+        var drop = $drop({
+            target: elem,
+            scope: scope,
+            templateUrl: 'partials/tooltip.html',
+            position: 'bottom left',
+            constrainToWindow: true,
+            constrainToScrollParent: true,
+            classes: 'drop-theme-arrows-bounce-dark',
+            tetherOptions:{},
+            openOn: 'hover' // openOn: 'hover', openDelay: 500
+        });
+        scope.drop = drop;
+        scope.custom_close = function(text) {
+          scope.fn(text);
+          scope.drop.close();
+        }
+      }
+    };
+  }]);
