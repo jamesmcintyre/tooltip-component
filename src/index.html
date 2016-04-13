@@ -28,7 +28,7 @@
         <tbody>
           <tr ng-repeat="record in records track by $index" >
             <td><img ng-src="{{record.logo}}" alt="" class="img-responsive tiny"></td>
-            <td><span  ng-mouseover="hoverIn(records[$index])" class="company-name" uib-tooltip-template="'/partials/tooltip.html'" tooltip-is-open="toggleTooltip()" tooltip-placement="bottom-left" tooltip-trigger="none" tooltip-class="panth-tooltip">{{record.name}}   </span><span ng-show="toggleTooltip()" ng-mouseover="hideToolTip()" class="hide-tip">Hide</span></td>
+            <td><span  ng-mouseenter="hoverIn(records[$index])" ng-mouseleave="hideTest()" class="company-name" uib-tooltip-template="'/partials/tooltip.html'" tooltip-is-open="toggleTooltip()" tooltip-placement="bottom-left" tooltip-trigger="none" tooltip-class="panth-tooltip">{{record.name}}   </span><span ng-show="toggleTooltip()" ng-mouseover="hideToolTip()" class="hide-tip">Hide</span></td>
             <td>{{record.bio}}</td>
             <td><span ng-repeat="tag in record.tags">{{tag}}{{$last ? '' : ', '}}</span></td>
           </tr>

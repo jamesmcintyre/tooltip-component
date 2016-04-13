@@ -3,7 +3,7 @@
 var app = angular.module('toolTipApp', ['ui.bootstrap']);
 
 
-app.controller('mainController', function($scope, $http, $rootScope) {
+app.controller('mainController', function($scope, $http, $rootScope, $timeout) {
 
   console.log('loaded!');
 
@@ -21,7 +21,23 @@ app.controller('mainController', function($scope, $http, $rootScope) {
   };
 
   $scope.hideToolTip = function(index){
-    $scope.focusedElementIndex = null;
+      $scope.focusedElementIndex = null;
+  };
+
+  $scope.hideTest = function(inOutToggle){
+
+
+    if(inOutToggle === 'in'){
+      $scope.focusedElementState = true;
+    }else{
+      $scope.focusedElementState = false;
+      $timeout(function(){
+        if($scope.focusedElementState === false){
+          $scope.focusedElementIndex = null;
+        }
+      }, 500);
+    }
+
   };
 
   $scope.toggleTooltip = function(element){
